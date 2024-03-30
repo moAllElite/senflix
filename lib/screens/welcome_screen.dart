@@ -15,8 +15,8 @@ class WelcomePageState extends State<WelcomeScreen>{
     return Scaffold(
       body: Center(
         child: MaterialButton(onPressed: ()async{
-          upcommingMovies();
-         // searchMovieByName();
+         // upcommingMovies();
+          searchMovieByName();
         },
           color: Colors.lightBlue,
           child: const Text('click me'),

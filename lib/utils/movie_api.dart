@@ -15,7 +15,9 @@ Future<MovieResult?> searchMovieByName() async {
     var jsonResponse =
     convert.jsonDecode(response.body) as Map<String, dynamic>;
      //print(itemCount);
-   // print(Results.fromJson(jsonResponse).popularity);
+    MovieResult.fromJson(jsonResponse).results.forEach((element) {
+      print(element.title);
+    });
     return MovieResult.fromJson(jsonResponse);
   } else {
     print('Request failed with status: ${response.statusCode}.');

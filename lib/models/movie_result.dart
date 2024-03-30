@@ -38,15 +38,15 @@ class MovieResult {
 
 class Film {
   late  String? backdropPath;
-  late int id;
-  late String originalLanguage;
-  late  String overview;
-  late  double popularity;
-  late  String posterPath;
-  late String releaseDate;
-  late String title;
-  late double voteAverage;
-  late int voteCount;
+  late int? id;
+  late String? originalLanguage;
+  late  String? overview;
+  late  double? popularity;
+  late  String? posterPath;
+  late String? releaseDate;
+  late String? title;
+  late double? voteAverage;
+  late int? voteCount;
   Film({
     required  this.backdropPath,
     required  this.id,
