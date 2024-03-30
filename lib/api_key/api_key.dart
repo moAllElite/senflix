@@ -1,0 +1,4 @@
+const String apiKey="e78e3e871998a41b790088b12b4b461a";
+const String bearer="Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNzhlM2U4NzE5OThhNDFiNzkwMDg4"
+    "YjEyYjRiNDYxYSIsInN1YiI6IjYyYmRiY2ZkMjI5YWUyMjI4Zjc4ZGRhNSIsInNjb3BlcyI6WyJhcGlfcmVh"
+    "ZCJdLCJ2ZXJzaW9uIjoxfQ.V4YKhImWudSceYeQWvQq63geKQsZYbmvoZmz03ZuVz8";
