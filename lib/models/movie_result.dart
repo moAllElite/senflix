@@ -8,9 +8,9 @@ class MovieResult {
 
   MovieResult({
     required  this.results,
-     required this.page,
+    required this.page,
     required  this.totalResults,
-   required this.totalPages,
+    required this.totalPages,
   });
 
   MovieResult.fromJson(Map<String, dynamic> json) {
