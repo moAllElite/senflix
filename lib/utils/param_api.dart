@@ -5,7 +5,7 @@ import 'package:senflix/api_key/api_key.dart';
  String searchQuery = "$urlBaseForSearch/search/movie?query=Jack Reacher$key";
  const langue= "?language=fr-FR";
  const page ="&page=1";
-const String upcoming ="$urlBaseForSearch/movie/upcoming$langue$page";
+const String upcomingMovies ="$urlBaseForSearch/movie/upcoming$langue$page";
 
 // for DISCOVERY
 const String urlBaseForDiscovery= 'https://api.themoviedb.org/3/discover';

@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:senflix/models/movie_model.dart';
@@ -19,7 +22,6 @@ class CarouselSliderCustom extends StatefulWidget{
 
 class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
   int currentPage = 0;
-
   @override
   Widget build(BuildContext context) {
 
@@ -32,7 +34,10 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if(snapshot.connectionState == ConnectionState.done){
                   MovieModel discoveryMovies = snapshot.data;
-
+                  List<Film> displayedMovie = [];
+                  for (int i = 0 ; i< discoveryMovies.results.length / 4 ; i++){
+                    displayedMovie.add(discoveryMovies.results[i]);
+                  }
                   return Column(
                     children: [
                       CarouselSlider(
@@ -52,17 +57,20 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                               });
                             },
                           ),
-                          items: discoveryMovies.results.map((item) {
+                          items: displayedMovie.map((movie) {
                             return Builder(
                               builder: (BuildContext context) {
                                 return Container(
-                                    width: MediaQuery.of(context).size.width,
+                                  //  width: MediaQuery.of(context).size.width,
+                                    height: 200,
                                     margin: const EdgeInsets.symmetric(horizontal: 35.0),
                                     decoration: const BoxDecoration(
                                       color: isGrey,
                                     ),
                                     child: Image.network(
-                                      'https://image.tmdb.org/t/p/w500/${item.posterPath}',
+                                    ( defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android)?
+                                     'https://image.tmdb.org/t/p/w500/${movie.posterPath}':
+                                     'https://image.tmdb.org/t/p/original/${movie.posterPath}',
                                       fit: BoxFit.cover,
                                     )
                                 );
@@ -70,7 +78,7 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                             );
                           }).toList()
                       ),
-                      carouselIndicator(discoveryMovies.results,currentPage)
+                      carouselIndicator(displayedMovie,currentPage)
                     ],
                   );
                 }else{

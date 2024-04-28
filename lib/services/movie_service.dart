@@ -6,10 +6,10 @@ import 'package:senflix/api_key/api_key.dart';
 import 'package:senflix/models/movie_model.dart';
 import 'package:senflix/utils/param_api.dart';
 
-Future<MovieModel?> getDiscoveryMovie() async{
+Future<MovieModel?> fetchMovieData(String urlLink) async{
 
   var url =
-  Uri.tryParse(discoveryForMovie);
+  Uri.tryParse(urlLink);
 
   // Await the http get response, then decode the json-formatted response.
   var response = await http.get(

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:senflix/models/movie_model.dart';
-import 'package:senflix/services/discovery_service.dart';
+import 'package:senflix/services/movie_service.dart';
 import 'package:senflix/utils/param_api.dart';
 import 'package:senflix/widgets/upcomming_movies_widget.dart';
-import 'package:senflix/services/search_movie_service.dart';
 import '../widgets/custom_color.dart';
 import '../widgets/custom_carousel_slider.dart';
 class WelcomeScreen extends StatefulWidget{
@@ -24,8 +23,8 @@ class WelcomePageState extends State<WelcomeScreen> with TickerProviderStateMixi
   void initState() {
     super.initState();
     debugPrint(discoveryForMovie);
-    commingMovies = upcommingMovies();
-    discoveryMovie = getDiscoveryMovie();
+    commingMovies = fetchMovieData(upcomingMovies);
+    discoveryMovie = fetchMovieData(discoveryForMovie);
   }
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class WelcomePageState extends State<WelcomeScreen> with TickerProviderStateMixi
               movie: discoveryMovie
             ),
             FutureBuilder(
-              future: upcommingMovies(),
+              future: commingMovies,
               builder: (BuildContext context,  snapshot) {
                 if( snapshot.connectionState == ConnectionState.done) {
                   return  upcommingMoviesWidget(context,snapshot.data);
