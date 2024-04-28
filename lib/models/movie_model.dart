@@ -1,19 +1,19 @@
 
 
-class MovieResult {
+class MovieModel {
   late List<Film> results;
  late int page;
   late  int totalResults;
  late int totalPages;
 
-  MovieResult({
+  MovieModel({
     required  this.results,
     required this.page,
     required  this.totalResults,
     required this.totalPages,
   });
 
-  MovieResult.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
       results = <Film>[];
       json['results'].forEach((v) {
