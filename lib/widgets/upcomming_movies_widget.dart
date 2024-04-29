@@ -6,7 +6,7 @@ Widget upcommingMoviesWidget (BuildContext context,MovieModel? data) {
   return SizedBox(
     height: 240,
     child: ListView.builder(
-      shrinkWrap: true,
+ //     shrinkWrap: true,
       itemCount: data!.results.length,
       addAutomaticKeepAlives: true,
       scrollDirection: Axis.horizontal,
