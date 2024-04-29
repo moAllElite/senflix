@@ -11,27 +11,9 @@ Widget myAnimatedSmoothIndicator(int activedIndex,int counter,{Color color = isR
     axisDirection: Axis.horizontal,
     effect:  ExpandingDotsEffect(
       expansionFactor: 2,
-      dotHeight: 16,
+      dotHeight: 8,
       activeDotColor: color,
       dotColor: const Color.fromRGBO(100, 100, 111, 0.2),
     ), activeIndex: activedIndex,
   );
 }
-
-/*
-Widget carouselIndicator(List myList, int currentPage, int length) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      for (int i = 0; i < length; i++)
-        Container(
-          margin: const EdgeInsets.all(5),
-          width: i == currentPage ? 7 : 5,
-          height: i == currentPage ? 7 : 5,
-          decoration: BoxDecoration(
-              color: i == currentPage ? isRed : isGrey, shape: BoxShape.circle),
-        )
-    ],
-  );
-}*/
-

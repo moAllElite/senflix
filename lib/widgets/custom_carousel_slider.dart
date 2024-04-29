@@ -1,13 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:senflix/models/movie_model.dart';
 import 'package:senflix/widgets/custom_text_button_with_icon.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:senflix/widgets/title_section_widget.dart';
 import 'my_animated_smooth__indicator.dart';
 import 'custom_color.dart';
-import 'custom_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 class CarouselSliderCustom extends StatefulWidget{
   final Future<MovieModel?> movie;
@@ -19,8 +16,6 @@ class CarouselSliderCustom extends StatefulWidget{
 }
 
 class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
-
-  final PageController pageController = PageController(viewportFraction: 0.8, keepPage: true);
 
   var currentPage=0;
 
@@ -39,11 +34,11 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                   return Column(
                     children: [
                       const SizedBox(
-                        height: 15.0,
+                        height: 45.0,
                       ),
                       CarouselSlider.builder(
                         options:CarouselOptions(
-                            height: 410.0,
+                            height: 380.0,
                             enlargeCenterPage: true,
                             aspectRatio: 16/9,
                             reverse: false,
@@ -72,7 +67,7 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                         },
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 9.0),
+                        margin: const EdgeInsets.symmetric(vertical: 12.0),
                         child: myAnimatedSmoothIndicator(
                             currentPage,6
                           ),
@@ -80,11 +75,12 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                     ],
                   );
                 }else{
-                  return const Center(
-                    child: SizedBox(
-                      width: 6,
-                      child: CircularProgressIndicator(
+                  return const SizedBox(
+                    height: 620,
+                    child: Center(
+                      child: LinearProgressIndicator(
                         color: isRed,
+                        backgroundColor: isGrey,
                       ),
                     ),
                   );
@@ -96,7 +92,7 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
             child: Container(
               margin: const EdgeInsets.only(
                   top: 6.0,
-                  bottom: 15.0
+                bottom: 45.0
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,19 +117,7 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 6.0,
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 9.0,horizontal: 9.0),
-            alignment: Alignment.topLeft,
-            child: customText(
-                'A venir',
-                fontSize: 25.0,
-                textAlign: TextAlign.left,
-                fontWeight: FontWeight.bold
-            ),
-          ),
+
 
         ]
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const kButtonStyle = ButtonStyle(
   textStyle: MaterialStatePropertyAll(
@@ -18,4 +19,13 @@ const kButtonStyle = ButtonStyle(
     ),
   elevation: MaterialStatePropertyAll(5.0),
 
+);
+
+var kTitleStyle =  GoogleFonts.poppins(
+  textStyle: const TextStyle(
+    color: Colors.white,
+    letterSpacing: .5,
+    fontSize: 25.0,
+    fontWeight: FontWeight.bold,
+  ),
 );
