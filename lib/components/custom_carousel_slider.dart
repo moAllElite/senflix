@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:senflix/models/movie_model.dart';
-import 'package:senflix/widgets/custom_text_button_with_icon.dart';
-import 'package:senflix/widgets/title_section_widget.dart';
+import 'package:senflix/components/custom_text_button_with_icon.dart';
 import 'my_animated_smooth__indicator.dart';
 import 'custom_color.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -34,11 +33,11 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                   return Column(
                     children: [
                       const SizedBox(
-                        height: 45.0,
+                        height:50.0,
                       ),
                       CarouselSlider.builder(
                         options:CarouselOptions(
-                            height: 380.0,
+                            height: 410.0,
                             enlargeCenterPage: true,
                             aspectRatio: 16/9,
                             reverse: false,
@@ -55,11 +54,11 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                         itemCount: 6,
                         itemBuilder: (context, index, realIndex) {
                           return Container(
-                              height: 200,
+                              height: 300,
                               margin: const EdgeInsets.symmetric(horizontal: 35.0),
                               child: Image.network(
                                 ( defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android)?
-                                'https://image.tmdb.org/t/p/w300/${discoveryMovies.results[index].posterPath}':
+                                'https://image.tmdb.org/t/p/w500/${discoveryMovies.results[index].posterPath}':
                                 'https://image.tmdb.org/t/p/original/${discoveryMovies.results[index].posterPath}',
                                 fit: BoxFit.cover,
                               )
@@ -67,7 +66,7 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
                         },
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 12.0),
+                        margin: const EdgeInsets.symmetric(vertical: 9.0),
                         child: myAnimatedSmoothIndicator(
                             currentPage,6
                           ),
@@ -92,7 +91,7 @@ class _CarouselSliderCustomState extends State<CarouselSliderCustom> {
             child: Container(
               margin: const EdgeInsets.only(
                   top: 6.0,
-                bottom: 45.0
+                bottom: 15.0
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:senflix/utils/constant.dart';
-import 'package:senflix/widgets/custom_text.dart';
+
+import 'custom_text.dart';
 Widget customTextButtonWithIcon(
     {
       text='play',

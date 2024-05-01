@@ -7,25 +7,28 @@ import 'custom_color.dart';
 
 
 Widget  sectionFutureBuilder ({required Future<MovieModel?> futureMovie,required dynamic tickerProvider}){
-  return FutureBuilder(
-    future: futureMovie,
-    builder: (BuildContext context,  snapshot) {
-      if( snapshot.connectionState == ConnectionState.done) {
-        return  moviesSectionWidget(context,snapshot.data);
-      }else{
-        return  Center(
-          child:  SpinKitRing(
-            color: isRed,
-            size: 50.0,
-            controller: AnimationController(
-                vsync: tickerProvider,
-                duration: const Duration(milliseconds: 5200)
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 12.0),
+    child: FutureBuilder(
+      future: futureMovie,
+      builder: (BuildContext context,  snapshot) {
+        if( snapshot.connectionState == ConnectionState.done) {
+          return  moviesSectionWidget(context,snapshot.data);
+        }else{
+          return  Center(
+            child:  SpinKitRing(
+              color: isRed,
+              size: 50.0,
+              controller: AnimationController(
+                  vsync: tickerProvider,
+                  duration: const Duration(milliseconds: 5200)
+              ),
             ),
-          ),
-        );
-      }
-    },
+          );
+        }
+      },
 
+    ),
   );
 
 }
@@ -33,7 +36,7 @@ Widget  sectionFutureBuilder ({required Future<MovieModel?> futureMovie,required
 
 Widget moviesSectionWidget (BuildContext context,MovieModel? data) {
   return SizedBox(
-    height: 200,
+    height: 205,
     child: ListView.builder(
       shrinkWrap: true,
       itemCount: data!.results.length,
@@ -43,7 +46,7 @@ Widget moviesSectionWidget (BuildContext context,MovieModel? data) {
         return  Row(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 12.0),
               child: Image.network(
                   'https://image.tmdb.org/t/p/w200/${data.results[index].posterPath}'
               ),
