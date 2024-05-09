@@ -1,37 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'custom_text.dart';
 
 class FlatButton extends StatelessWidget{
-  final String title;
-  final Color color;
+  final Color buttonColor;
   final Function onPressed;
-  const FlatButton({required this.title,required this.color,required this.onPressed, super.key});
+  final String text;
+  final IconData? iconData;
+  final Color textColor;
+  final double fontSize;
+  final FontWeight fontWeight;
+  const FlatButton(
+      this.iconData,{
+        required this.text,
+    required this.textColor,
+    required this.fontWeight,
+    required this.fontSize,
+    required this.buttonColor,
+    required this.onPressed,
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Material(
-        color: color,
+        color: buttonColor,
         borderRadius: BorderRadius.zero,
         elevation: 5.0,
         child: MaterialButton(
           onPressed: ()  {
             onPressed();
           },
-          minWidth: 500.0,
-          height: 60.0,
-          child: Text(
-              title,
-              style:GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  color: Colors.white,
-                  letterSpacing: .5,
-                  height: 1.2,
-                  fontSize:25,
-                  fontWeight: FontWeight.w600,
+          minWidth: 700.0,
+          height: 70.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                child:    Icon(
+                  iconData,
+                  size: 25.0,
+                  color:textColor,
                 ),
               ),
+              customText(
+                  text,
+                  color:textColor,
+                  fontSize: fontSize,
+                  fontWeight: fontWeight
+              ),
+            ],
           ),
         ),
       ),

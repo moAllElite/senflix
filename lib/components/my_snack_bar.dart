@@ -7,6 +7,7 @@ SnackBar  mySnackBar ({
     elevation: 10.0,
     duration: const Duration(seconds: 2),
     content: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Icon(
           Icons.report_problem_outlined,

@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:senflix/models/movie_model.dart';
 
 import 'custom_color.dart';
+import 'custom_text.dart';
 
 
 Widget  sectionFutureBuilder ({required Future<MovieModel?> futureMovie,required dynamic tickerProvider}){
@@ -43,12 +45,20 @@ Widget moviesSectionWidget (BuildContext context,MovieModel? data) {
       addAutomaticKeepAlives: true,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
+
         return  Row(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 12.0),
-              child: Image.network(
-                  'https://image.tmdb.org/t/p/w200/${data.results[index].posterPath}'
+              padding: const EdgeInsets.symmetric(horizontal: 12.0,),
+              child: CachedNetworkImage(
+                height: 200,
+                width: 100,
+                fit: BoxFit.cover,
+                imageUrl: 'https://image.tmdb.org/t/p/w200/${data.results[index].posterPath}',
+                placeholder: (context, url) =>  customText(
+                    'Chargement en cours',
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.normal),
               ),
             ),
           ],

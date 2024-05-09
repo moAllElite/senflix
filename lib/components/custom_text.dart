@@ -5,10 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 Widget customText(
     String data, {
-      color=Colors.white,
+      Color color=Colors.white,
       fontSize=18.0,fontStyle=FontStyle.normal,
       fontWeight=FontWeight.normal,
-      textAlign =TextAlign.center
+      textAlign =TextAlign.center,
+      maxLines = 10,
+      overflow =   TextOverflow.ellipsis
     }
     ) {
   return Text(
@@ -22,5 +24,7 @@ Widget customText(
           fontWeight: fontWeight,
         ),
     ),
+    maxLines: maxLines,
+    overflow: overflow,
   );
 }

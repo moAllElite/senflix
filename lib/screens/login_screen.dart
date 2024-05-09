@@ -94,8 +94,11 @@ class LoginScreenState  extends State<LoginScreen>{
                             height: 12.0,
                           ),
                           FlatButton(
-                              title: 'Sign in',
-                              color: isRed,
+                            null,
+                            text: 'Télécharger',
+                            fontSize: 20.0,
+                            textColor: Colors.white,
+                            fontWeight: FontWeight.normal,
                               onPressed: () async {
                                 if(_formKey.currentState!.validate()){
                                   setState(() {
@@ -107,9 +110,9 @@ class LoginScreenState  extends State<LoginScreen>{
                                       backgroundColor: Colors.red,
                                       message: 'Tous les champs sont obligatoires'
                                   );
-
                                 }
-                              }
+                              },
+                            buttonColor: isRed,
                           ),
                         ],
                       ),

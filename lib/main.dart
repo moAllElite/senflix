@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:senflix/screens/login_screen.dart';
+import 'package:senflix/screens/search_screen.dart';
 import 'package:senflix/screens/welcome_screen.dart';
 
 void main() {
@@ -18,11 +18,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '',
+      initialRoute: '/',
       routes: {
-        '':(context) => const LoginScreen(),
-        'welcome_screen': (context) => const WelcomeScreen(),
-
+    //    '':(context) => const LoginScreen(),
+        '/': (context) => const WelcomeScreen(),
+        '/search_screen':(context) => const SearchScreen(),
+  //      'detail_screen':(context) => const DetailsScreen()
       },
     );
   }
