@@ -7,7 +7,6 @@ import 'package:senflix/services/movie_service.dart';
 import 'package:senflix/utils/param_api.dart';
 import '../components/custom_carousel_slider.dart';
 import '../components/custom_color.dart';
-import '../components/my_bottom_navigation.dart';
 import '../components/title_section_widget.dart';
 import '../utils/constant.dart';
 class WelcomeScreen extends StatefulWidget{
@@ -38,12 +37,6 @@ class WelcomePageState extends State<WelcomeScreen> with TickerProviderStateMixi
   }
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = 0;
-    void onItemTapped(int index) {
-      setState(() {
-        selectedIndex = index;
-      });
-    }
     return Scaffold(
       backgroundColor: isDark,
       appBar: AppBar(
